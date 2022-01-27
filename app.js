@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const seedDB = require("./seed");
 const foodRoutes = require("./api/foodRoutes");
 const cors = require("cors");
+require("dotenv").config();
 
 mongoose
     .connect(process.env.MONGO_URL)
@@ -19,7 +20,10 @@ mongoose
 app.use(express.json());
 app.use(
     cors({
-        origin: ["http://localhost:3000"],
+        origin: [
+            "http://localhost:3000",
+            "https://focused-pike-5815b0.netlify.app",
+        ],
         credentials: true,
     })
 );
